@@ -1,0 +1,13 @@
+{% extends 'rango/base.html' %}
+{% load static %} <!-- New line -->
+
+{% block title %} About . . . {% endblock %}
+
+{% block body_block %}
+<div class="hero-unit">
+		<h1> Rango says . . . </h1>
+		About my new page... <strong> You have visited this webpage {{visits}} times bro </strong> <br />
+		<img src="{% static "Steve_Brule.png" %}" alt="About :) "/>
+</div>
+{% endblock %}
+	
