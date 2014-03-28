@@ -2,18 +2,19 @@ $(document).ready(function() {
 
 
 	$('.rango-add').click(function(){
-		alert("click huurd.");
+		//alert("click huurd.");
 		var catid = $(this).attr("data-catid");
-		alert(catid);
+		//alert(catid);
 		var url = $(this).attr("data-url");
-		alert(url);
+		//alert(url);
 		var title = $(this).attr("data-title");
-		alert(title);
+		//alert(title);
 		var me = $(this);
-		alert(me);
+		//alert(me);
 			$.get('/rango/auto_add_page/', {category_id : catid, url : url, title: title}, function(data){
 					$('#pagesz').html(data);
 					console.log("we got the new page...");
+					me.hide();
 				});
 		});
 
