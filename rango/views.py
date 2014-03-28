@@ -398,19 +398,21 @@ def suggest_category(request):
 
 @login_required
 def auto_add_page(request):
+    print 'starting to add a new page'
     context = RequestContext(request)
     cat_id = None
     url = None
     title = None
     context_dict = {}
-    if request.method == "GET":
+    if request.method == 'GET':
         cat_id = request.GET['category_id']
         url = request.GET['url']
         title = request.GET['title']
+        print "HEY:  ", cat_id, url
         if cat_id:
             category = Category.objects.get(id=int(cat_id))
             p = Page.objects.get_or_create(category=category, title=title, url=url)
-
+            print "We just made the new page:  ", p
             pages = Page.objects.filter(category=category).order_by('-views')
 
             # Adds our results list to the template context under name pages.
